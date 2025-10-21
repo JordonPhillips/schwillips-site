@@ -158,6 +158,37 @@
             background: #8b4513;
             color: white;
         }
+        
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        
+        .language-switcher button {
+            background: rgba(212, 98, 26, 0.9);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin: 0 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .language-switcher button:hover {
+            background: #8b4513;
+        }
+        
+        .language-switcher button.active {
+            background: #8b4513;
+            font-weight: bold;
+        }
+        
+        .lang-de {
+            display: none;
+        }
 
         @media (max-width: 600px) {
             .container {
@@ -175,6 +206,11 @@
     </style>
 </head>
 <body>
+    <div class="language-switcher">
+        <button onclick="switchLanguage('en')" id="btn-en" class="active">English</button>
+        <button onclick="switchLanguage('de')" id="btn-de">Deutsch</button>
+    </div>
+    
     <div class="container">
         <header>
             <img src="mildenstein-sunset.jpg" alt="Mildenstein Castle at sunset" class="castle-image">
@@ -185,7 +221,7 @@
             </div>
         </header>
 
-        <div class="intro">
+        <div class="intro" id="intro">
             <p>We're thrilled to celebrate our wedding with our closest friends and family on October 17th, 2026, at Mildenstein Castle. This page contains all the essential information you'll need for our special day.</p>
 
             <p>Please take time to read through the <a href="#location">location details</a>, <a href="#hotels">accommodation options</a>, <a href="#weather">weather expectations</a>, and <a href="#gifts">gift preferences</a> before submitting your <a href="#rsvp">RSVP</a>. If you have any questions, please reach out using the email address provided in your invitation.</p>
@@ -367,5 +403,83 @@
             <p>For travel to other European countries, check entry requirements and currencies (not everyone uses the Euro - Poland uses Zloty, for example). Sleeper trains between countries are comfortable and environmentally friendly, though slower than flying.</p>
         </section>
     </div>
+    
+    <!-- German Content -->
+    <div class="container lang-de" id="german-content">
+        <header>
+            <img src="mildenstein-sunset.jpg" alt="Burg Mildenstein bei Sonnenuntergang" class="castle-image">
+            <div class="header-content">
+                <h1>Unsere Hochzeit</h1>
+                <div class="date">17. Oktober 2026</div>
+                <div class="location">Burg Mildenstein, Leisnig, Deutschland</div>
+            </div>
+        </header>
+
+        <div class="intro" id="intro-de">
+            <p>[German intro placeholder - Wir freuen uns darauf, unsere Hochzeit mit unseren liebsten Freunden und Familie zu feiern...]</p>
+        </div>
+
+        <section id="location-de">
+            <h2>Ort</h2>
+            <p>[German location content placeholder...]</p>
+            <a href="https://maps.app.goo.gl/rJ7bTQxZG7b3Egrk8" target="_blank" class="map-link">📍 Auf Google Maps anzeigen</a>
+        </section>
+
+        <section id="hotels-de">
+            <h2>Unterkunft</h2>
+            <p>[German accommodation content placeholder...]</p>
+        </section>
+
+        <section id="weather-de">
+            <h2>Wetter</h2>
+            <p>[German weather content placeholder...]</p>
+        </section>
+
+        <section id="schedule-de">
+            <h2>Tagesablauf</h2>
+            <p>[German schedule content placeholder...]</p>
+        </section>
+
+        <section id="dress-code-de">
+            <h2>Kleidung</h2>
+            <p>[German dress code content placeholder...]</p>
+        </section>
+
+        <section id="gifts-de">
+            <h2>Geschenke</h2>
+            <p>[German gifts content placeholder...]</p>
+        </section>
+
+        <section id="rsvp-de">
+            <h2>Zusage</h2>
+            <p>[German RSVP content placeholder...]</p>
+        </section>
+
+        <section id="pre-wedding-de">
+            <h2>Standesamtliche Trauung</h2>
+            <p>[German pre-wedding content placeholder...]</p>
+        </section>
+    </div>
+    
+    <script>
+        function switchLanguage(lang) {
+            const englishContent = document.querySelector('.container:not(.lang-de)');
+            const germanContent = document.getElementById('german-content');
+            const btnEn = document.getElementById('btn-en');
+            const btnDe = document.getElementById('btn-de');
+            
+            if (lang === 'de') {
+                englishContent.style.display = 'none';
+                germanContent.style.display = 'block';
+                btnEn.classList.remove('active');
+                btnDe.classList.add('active');
+            } else {
+                englishContent.style.display = 'block';
+                germanContent.style.display = 'none';
+                btnDe.classList.remove('active');
+                btnEn.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
