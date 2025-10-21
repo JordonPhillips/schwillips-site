@@ -158,14 +158,14 @@
             background: #8b4513;
             color: white;
         }
-        
+
         .language-switcher {
             position: absolute;
             top: 20px;
             right: 20px;
             z-index: 10;
         }
-        
+
         .language-switcher button {
             background: rgba(212, 98, 26, 0.9);
             color: white;
@@ -176,16 +176,16 @@
             cursor: pointer;
             font-size: 14px;
         }
-        
+
         .language-switcher button:hover {
             background: #8b4513;
         }
-        
+
         .language-switcher button.active {
             background: #8b4513;
             font-weight: bold;
         }
-        
+
         .lang-de {
             display: none;
         }
@@ -210,7 +210,7 @@
         <button onclick="switchLanguage('en')" id="btn-en" class="active">English</button>
         <button onclick="switchLanguage('de')" id="btn-de">Deutsch</button>
     </div>
-    
+
     <div class="container">
         <header>
             <img src="mildenstein-sunset.jpg" alt="Mildenstein Castle at sunset" class="castle-image">
@@ -285,23 +285,23 @@
         <section id="schedule">
             <h2>Wedding Day Schedule</h2>
             <p>We don't have exact times committed yet, but here's the rough schedule (exact times will be confirmed closer to the date):</p>
-            
+
             <p><strong>Early afternoon (around 2-3pm):</strong> Wedding ceremony begins. (It will be a short ceremony.)</p>
             <p><strong>Immediately after ceremony:</strong> Salutschuss, a celebration where cannons are fired in honor of the newlyweds!</p>
             <p><strong>Following the Salutschuss:</strong> Reception with dinner, drinks, and dancing in the Knights Hall.</p>
             <p><strong>Throughout the day:</strong> Feel free to explore the castle and museum before and after the ceremony.</p>
-            
+
             <p>We have the venue until 2am, but the bride and groom probably won't stay that late. If you're planning to celebrate until the early hours, please let us know in your RSVP so we can arrange late-night shuttle transportation for you. If you stay past 2pm we'll make you pay the fines.</p>
         </section>
 
         <section id="dress-code">
             <h2>What to Wear</h2>
             <p>We're asking for <strong>formal attire</strong>, i.e. dresses, ties, button-up shirts, etc. You don't need to break the bank on something expensive, but please don't show up in jeans and a t-shirt.</p>
-            
+
             <p>Given the castle setting, we'd also be delighted if anyone wants to wear medieval or Renaissance attire! This is completely optional and not expected at all, but if you have the inclination (and the costume), it would add to the atmosphere.</p>
-            
+
             <p>If you don't bring medieval clothing but want to get some photos in period dress, the castle has some costumes available for photos. You can't wear these outside the designated photo area, but they're perfect for some fun castle pictures.</p>
-            
+
             <p>Practical note: While the interior floors are hard wood, you'll be walking on some cobblestones outside, so comfortable dress shoes are recommended. And remember to bring a jacket or coat for the cold and possible rain.</p>
         </section>
 
@@ -403,7 +403,7 @@
             <p>For travel to other European countries, check entry requirements and currencies (not everyone uses the Euro - Poland uses Zloty, for example). Sleeper trains between countries are comfortable and environmentally friendly, though slower than flying.</p>
         </section>
     </div>
-    
+
     <!-- German Content -->
     <div class="container lang-de" id="german-content">
         <header>
@@ -460,14 +460,14 @@
             <p>[German pre-wedding content placeholder...]</p>
         </section>
     </div>
-    
+
     <script>
         function switchLanguage(lang) {
             const englishContent = document.querySelector('.container:not(.lang-de)');
             const germanContent = document.getElementById('german-content');
             const btnEn = document.getElementById('btn-en');
             const btnDe = document.getElementById('btn-de');
-            
+
             if (lang === 'de') {
                 englishContent.style.display = 'none';
                 germanContent.style.display = 'block';
@@ -479,7 +479,25 @@
                 btnDe.classList.remove('active');
                 btnEn.classList.add('active');
             }
+
+            // Update URL parameter
+            const url = new URL(window.location);
+            if (lang === 'de') {
+                url.searchParams.set('lang', 'de');
+            } else {
+                url.searchParams.delete('lang');
+            }
+            window.history.replaceState({}, '', url);
         }
+
+        // Check URL parameter on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang');
+            if (lang === 'de') {
+                switchLanguage('de');
+            }
+        });
     </script>
 </body>
 </html>
