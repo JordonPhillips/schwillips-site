@@ -119,20 +119,37 @@
             margin: 20px 0;
         }
 
-        .rsvp-list {
-            background: linear-gradient(135deg, #ddbea9 0%, #cb997e 100%);
-            padding: 20px;
-            border-radius: 5px;
-            margin: 15px 0;
-            color: #2d1810;
+        .schedule-list {
+            list-style: none;
         }
 
-        .rsvp-list ul {
-            margin-left: 20px;
+        .schedule-list li {
+            display: grid;
+            grid-template-columns: 110px minmax(0, 1fr);
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e8dcc6;
         }
 
-        .rsvp-list li {
-            margin-bottom: 8px;
+        .schedule-time {
+            color: #8b4513;
+            font-weight: bold;
+        }
+
+        .schedule-time span {
+            display: block;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .schedule-list h3 {
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        .schedule-list p {
+            margin: 5px 0 0;
+            text-align: left;
         }
 
         a {
@@ -222,6 +239,15 @@
             section {
                 padding: 20px;
             }
+
+            .schedule-list li {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .schedule-time span {
+                display: inline;
+            }
         }
     </style>
 </head>
@@ -247,11 +273,68 @@
                 Mildenstein Castle. This page contains all the essential information you'll need for our special day.
             </p>
 
+            <p>Take a look at the <a href="#schedule">wedding day schedule</a> and
+                <a href="#shuttles">evening shuttles to Leipzig</a> to plan your day.</p>
+
             <p>Please take time to read through the <a href="#location">location details</a>, <a
                     href="#hotels">accommodation options</a>, <a href="#weather">weather expectations</a>, and <a
-                    href="#gifts">gift preferences</a> before submitting your <a href="#rsvp">RSVP</a>. If you have any
+                    href="#gifts">gift preferences</a>. If you have any
                 questions, please reach out using the email address provided in your invitation.</p>
         </div>
+
+        <section id="schedule">
+            <h2>Wedding Day Schedule</h2>
+            <p>Here's the plan for our day at Mildenstein Castle. All times are local.</p>
+
+            <ol class="schedule-list">
+                <li>
+                    <time class="schedule-time" datetime="13:00">13:00 <span>(1:00 pm)</span></time>
+                    <div>
+                        <h3>Wedding ceremony</h3>
+                        <p>In the Fürstenstube, lasting approximately 30–45 minutes.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="schedule-time" datetime="13:45">13:45 <span>(1:45 pm)</span></time>
+                    <div>
+                        <h3>Sparkling wine reception (Sektempfang)</h3>
+                    </div>
+                </li>
+                <li>
+                    <span class="schedule-time">Afterwards</span>
+                    <div>
+                        <h3>Coffee &amp; cake</h3>
+                        <p>In the Rittersaal (Knight's Hall), following the sparkling wine reception.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="schedule-time" datetime="16:00">16:00 <span>(4:00 pm)</span></time>
+                    <div>
+                        <h3>Guided castle tours</h3>
+                        <p>Tours are available in both English and German.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="schedule-time" datetime="18:00">18:00 <span>(6:00 pm)</span></time>
+                    <div>
+                        <h3>Dinner</h3>
+                    </div>
+                </li>
+            </ol>
+
+            <p class="highlight"><strong>Schedule update:</strong> The planned cannon salute (Salutschuss) has
+                unfortunately been cancelled because the person responsible is ill.</p>
+
+            <p>Throughout the day, feel free to explore the castle and museum before and after the ceremony.
+                We have the venue until 02:00 (2:00 am), and all guests must leave by then.</p>
+
+            <h3 id="shuttles">Shuttles to Leipzig</h3>
+            <p>Shuttles will take guests from the castle to <strong>Leipzig Hauptbahnhof (main train station)</strong>.
+                We expect departures <strong>roughly every two hours, starting around 20:00 (8:00 pm)</strong>.
+                Exact departure times are still to be confirmed.</p>
+            <p>Please let us know if you need a shuttle, especially if you plan to stay late, using the email
+                address in your invitation.</p>
+        </section>
 
         <section id="location">
             <h2>Location</h2>
@@ -268,11 +351,12 @@
                 <p><strong>Accessibility Note:</strong> The castle maintains its medieval character, which means there
                     are stairs to reach both the ceremony and reception locations, plus an incline up to the main
                     courtyard. A small freight elevator exists for supplies but cannot accommodate guests. Please let us
-                    know in your RSVP if you have mobility concerns.</p>
+                    know if you have mobility concerns using the email address in your invitation.</p>
             </div>
 
-            <p>You will, of course, be able to visit the museum sections of the castle. If you'd like to take part in a
-                guided tour in English (or German), please let us know in your RSVP.</p>
+            <p>You will, of course, be able to visit the museum sections of the castle. Guided tours in English and
+                German will take place at <a href="#schedule">16:00 (4:00 pm)</a>. If you'd like to take part, please
+                let us know using the email address in your invitation.</p>
 
             <p>The castle is very kid-friendly, offering a number of games and activities especially for kids. There's
                 even a really cool jousting game that we're sure the adults will love too!</p>
@@ -310,10 +394,10 @@
                 starting around €80/night. It's easy to find hotels with English-speaking staff there.</p>
 
             <div class="highlight">
-                <p><strong>Important for Leipzig guests:</strong> The last train back to Leipzig leaves at 9pm, which is
-                    quite early. If you're staying in Leipzig, you'll almost certainly need to arrange a car or pre-book
-                    a taxi. We already have had some interest, so we'll probably book a shuttle. Please mention your
-                    transportation needs in your RSVP.</p>
+                <p><strong>For Leipzig guests:</strong> We'll have <a href="#shuttles">shuttles from the castle to
+                        Leipzig Hauptbahnhof (main train station)</a>, roughly every two hours starting around
+                    20:00 (8:00 pm).
+                    Exact departure times are still to be confirmed. Please let us know if you need a shuttle.</p>
             </div>
 
             <h3>Berlin</h3>
@@ -333,25 +417,6 @@
             <p>Note that you'll need to walk outside briefly to move between different areas of the castle, including
                 between the ceremony and reception locations. We recommend bringing a jacket or coat that you can easily
                 put on and take off, and an umbrella just in case.</p>
-        </section>
-
-        <section id="schedule">
-            <h2>Wedding Day Schedule</h2>
-            <p>We don't have exact times committed yet, but here's the rough schedule (exact times will be confirmed
-                closer to the date):</p>
-
-            <p><strong>Early afternoon (around 2-3pm):</strong> Wedding ceremony begins. (It will be a short ceremony.)
-            </p>
-            <p><strong>Immediately after ceremony:</strong> Salutschuss, a celebration where cannons are fired in honor
-                of the newlyweds!</p>
-            <p><strong>Following the Salutschuss:</strong> Reception with dinner, drinks, and dancing in the Knights
-                Hall.</p>
-            <p><strong>Throughout the day:</strong> Feel free to explore the castle and museum before and after the
-                ceremony.</p>
-
-            <p>We have the venue until 2am, but the bride and groom probably won't stay that late. If you're planning to
-                celebrate until the early hours, please let us know in your RSVP so we can arrange late-night shuttle
-                transportation for you. You really must leave by 2am.</p>
         </section>
 
         <section id="dress-code">
@@ -402,50 +467,13 @@
                 recipes will mean so much to us.</p>
         </section>
 
-        <section id="rsvp">
-            <h2>RSVP</h2>
-            <p>While the castle is beautiful, the medieval rooms have limited capacity, so we need to plan carefully for
-                everyone's comfort. <strong>Please RSVP regardless of whether you're coming, not coming, or
-                    unsure</strong> - we need to hear from everyone! If you have a plus-one on your invitation but don't
-                think you'll use it, please let us know as it might allow us to invite someone else. We can only
-                accommodate the guests specified on your invitation due to space constraints.</p>
-
-            <p><strong>Please RSVP as soon as possible</strong> so we can send out additional invitations if space
-                permits.</p>
-
-            <p>To RSVP, please send us an email at the address that was in your invitation. (If we put it up on this
-                site we'd get spammed.)</p>
-
-            <p><strong>Everyone please include:</strong></p>
-            <div class="rsvp-list">
-                <ul>
-                    <li>Are you attending? (Yes/No/Maybe)</li>
-                    <li>How many people will be attending with you?</li>
-                    <li>Would you be interested in a digital copy of the wedding cookbook?</li>
-                </ul>
-            </div>
-
-            <p><strong>If you're planning to attend or are on the fence, also include:</strong></p>
-            <div class="rsvp-list">
-                <ul>
-                    <li>What's the best phone number to reach you while in Germany?</li>
-                    <li>Do you have mobility issues, or otherwise a need to stay very close by?</li>
-                    <li>Where will you likely be staying?</li>
-                    <li>Will you be renting a car? If so, would you be willing to drive other people to/from the castle?
-                    </li>
-                    <li>Do you need shuttle arrangements? If so, to which location?</li>
-                    <li>Would you be interested in a guided tour of the castle?</li>
-                    <li>Do you have any dietary restrictions?</li>
-                </ul>
-            </div>
-        </section>
-
-
-
         <section id="pre-wedding">
             <h2>Pre-Wedding Business</h2>
+            <p>Our civil ceremony will take place on <strong>October 14th, 2026, at 13:00 (1:00 pm)</strong>
+                at <strong>Rathaus Pankow in Berlin</strong>.</p>
+
             <p>Before the celebration at the castle we'll have a civil ceremony at the Standesamt (civil
-                registry office) in Berlin. This will take place on October 14th at 1pm. In Germany, this legal ceremony is required to become officially married and
+                registry office) in Berlin. In Germany, this legal ceremony is required to become officially married and
                 is distinct from the celebration that we'll do at the castle. The civil ceremony is quite short and
                 formal, conducted by a government official with just a few witnesses present. It's usually only
                 immediate family, and it must be done in Berlin since that's where we're registered residents.</p>
@@ -561,12 +589,69 @@
                 Freunden und unserer Familie zu feiern. Auf dieser Seite findet ihr alle wichtigen Informationen zu
                 unserem besonderen Tag.</p>
 
+            <p>Schaut euch den <a href="#schedule-de">Tagesablauf</a> und die
+                <a href="#shuttles-de">Shuttles nach Leipzig am Abend</a> an, um euren Tag zu planen.</p>
+
             <p>Nehmt euch bitte die Zeit, die <a href="#location-de">Informationen zu Ort</a>,
                 <a href="#hotels-de">Unterkunftsmöglichkeiten</a> und <a href="#gifts-de">Geschenkwünschen</a>
-                durchzulesen, bevor ihr eure <a href="#rsvp-de">Antwort</a> zu dieser Einladung übermittelt. Falls ihr
+                durchzulesen. Falls ihr
                 Fragen habt, meldet euch gerne an die E-Mail-Adresse von eurer Einladung.
             </p>
         </div>
+
+        <section id="schedule-de">
+            <h2>Tagesablauf</h2>
+            <p>So ist unser Tag auf Burg Mildenstein geplant. Alle Zeiten sind Ortszeiten.</p>
+
+            <ol class="schedule-list">
+                <li>
+                    <time class="schedule-time" datetime="13:00">13:00 Uhr</time>
+                    <div>
+                        <h3>Freie Trauungszeremonie</h3>
+                        <p>In der Fürstenstube, Dauer etwa 30–45 Minuten.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="schedule-time" datetime="13:45">13:45 Uhr</time>
+                    <div>
+                        <h3>Sektempfang</h3>
+                    </div>
+                </li>
+                <li>
+                    <span class="schedule-time">Anschließend</span>
+                    <div>
+                        <h3>Kaffee &amp; Kuchen</h3>
+                        <p>Im Rittersaal, im Anschluss an den Sektempfang.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="schedule-time" datetime="16:00">16:00 Uhr</time>
+                    <div>
+                        <h3>Burgführungen</h3>
+                        <p>Die Führungen werden auf Deutsch und Englisch angeboten.</p>
+                    </div>
+                </li>
+                <li>
+                    <time class="schedule-time" datetime="18:00">18:00 Uhr</time>
+                    <div>
+                        <h3>Abendessen</h3>
+                    </div>
+                </li>
+            </ol>
+
+            <p class="highlight"><strong>Änderung im Ablauf:</strong> Der geplante Salutschuss muss leider
+                entfallen, da die dafür zuständige Person erkrankt ist.</p>
+
+            <p>Den ganzen Tag über könnt ihr die Burg und das Museum vor und nach der Zeremonie erkunden.
+                Wir haben die Location bis 02:00 Uhr gebucht. Bis dahin müssen alle Gäste die Burg verlassen haben.</p>
+
+            <h3 id="shuttles-de">Shuttles nach Leipzig</h3>
+            <p>Es wird Shuttles von der Burg zum <strong>Leipziger Hauptbahnhof</strong> geben.
+                Die Abfahrten sind <strong>ungefähr alle zwei Stunden ab etwa 20:00 Uhr</strong> geplant.
+                Die genauen Abfahrtszeiten stehen noch nicht fest.</p>
+            <p>Teilt uns bitte über die E-Mail-Adresse aus eurer Einladung mit, ob ihr einen Shuttle braucht,
+                besonders wenn ihr bis spät in die Nacht bleiben möchtet.</p>
+        </section>
 
         <section id="location-de">
             <h2>Ort</h2>
@@ -583,11 +668,13 @@
                 <p><strong>Hinweis zur Barrierefreiheit:</strong> Es ist eine mittelalterliche Burg, was
                     bedeutet, dass es sowohl zu den Zeremonie- als auch zu den Feierorten Treppen gibt und man zum
                     Innenhof einen Anstieg bewältigen muss. Ein kleiner Lastenaufzug ist vorhanden, kann aber keine
-                    Gäste befördern. Teilt uns bitte in eurer Zusage mit, falls ihr Mobilitätseinschränkungen habt.</p>
+                    Gäste befördern. Teilt uns bitte über die E-Mail-Adresse aus eurer Einladung mit, falls ihr
+                    Mobilitätseinschränkungen habt.</p>
             </div>
 
-            <p>Ihr könnt natürlich auch die Museumsbereiche der Burg besuchen. Wenn ihr an einer Führung teilnehmen
-                möchtet, gebt das bitte in eurer Zusage an.</p>
+            <p>Ihr könnt natürlich auch die Museumsbereiche der Burg besuchen. Führungen auf Deutsch und Englisch
+                finden um <a href="#schedule-de">16:00 Uhr</a> statt. Wenn ihr teilnehmen möchtet, teilt uns das bitte
+                über die E-Mail-Adresse aus eurer Einladung mit.</p>
 
             <p>Die Burg ist sehr kinderfreundlich und bietet verschiedene Spiele und Aktivitäten speziell für Kinder. Es
                 gibt sogar ein richtig cooles Ritterspiel, das sicher auch den Erwachsenen gefallen wird!</p>
@@ -626,11 +713,10 @@
                 Unterkunftsmöglichkeiten ab etwa €80/Nacht.</p>
 
             <div class="highlight">
-                <p><strong>Wichtig für Gäste, die in Leipzig übernachten wollen:</strong>
-                    Der letzte Zug zurück nach Leipzig fährt bereits um 21 Uhr, was ziemlich früh ist. Wenn ihr in
-                    Leipzig übernachtet, müsst ihr wahrscheinlich ein Auto organisieren oder ein Taxi vorbestellen. Wir
-                    können eventuell Taxis organisieren, sofern es genügend Interessenten gibt. Teilt uns eure
-                    Transportbedürfnisse bitte in eurer Zusage mit.</p>
+                <p><strong>Für Gäste, die in Leipzig übernachten:</strong> Es wird
+                    <a href="#shuttles-de">Shuttles von der Burg zum Leipziger Hauptbahnhof</a> geben, ungefähr alle
+                    zwei Stunden ab etwa 20:00 Uhr. Die genauen Abfahrtszeiten stehen noch nicht fest.
+                    Teilt uns bitte mit, ob ihr einen Shuttle braucht.</p>
             </div>
         </section>
 
@@ -647,24 +733,6 @@
                 Wir empfehlen, eine Jacke oder einen Mantel
                 mitzubringen, die bzw. den ihr leicht an- und ausziehen könnt, sowie einen Regenschirm für alle Fälle.
             </p>
-        </section>
-
-        <section id="schedule-de">
-            <h2>Tagesablauf</h2>
-            <p>Wir haben noch keine genauen Zeiten festgelegt, aber hier ist der grobe Ablauf (die genauen Zeiten werden
-                zeitnah vor der Hochzeit bestätigt):</p>
-
-            <p><strong>Früher Nachmittag (etwa 14-15 Uhr):</strong> Beginn der freien Trauungszeremonie. (Es wird eine
-                kurze Zeremonie sein.)</p>
-            <p><strong>Direkt nach der Zeremonie:</strong> Salutschuss, bei dem eine Kanone zu Ehren des
-                Brautpaares abgefeuert wird!</p>
-            <p><strong>Nach dem Salutschuss:</strong> Feier mit Abendessen, Getränken und Tanz im Rittersaal.</p>
-            <p><strong>Den ganzen Tag über:</strong> Ihr könnt die Burg und das Museum vor und nach der Zeremonie
-                erkunden.</p>
-
-            <p>Wir haben die Location bis 2 Uhr morgens gebucht, aber Braut und Bräutigam werden aber wahrscheinlich
-                nicht so lange bleiben. Wenn ihr plant, bis in die frühen Morgenstunden zu feiern, lasst es uns bitte in
-                eurer Antwort wissen, damit wir bei Bedarf einen Nacht-Shuttle für euch organisieren können.</p>
         </section>
 
         <section id="dress-code-de">
@@ -719,51 +787,13 @@
             </p>
         </section>
 
-        <section id="rsvp-de">
-            <h2>Rückmeldung</h2>
-            <p>Die Burg ist zwar wunderschön, aber die mittelalterlichen Räume haben nur begrenzt Platz, weshalb wir
-                sorgfältig für den Komfort aller planen müssen. <strong>Bitte gebt uns eine Antwort, egal, ob ihr kommt
-                    oder nicht. Wir benötigen die Rückmeldung von allen!</strong> Auch falls ihr ohne eine Begleitperson
-                kommen möchtet. So können wir eventuell jemanden anderen einladen. Aufgrund der Platzbeschränkungen
-                können wir nur die auf eurer Einladung angegebenen Gäste unterbringen.</p>
-
-            <p><strong>Bitte gebt eure Zusage oder Absage so bald wie möglich ab</strong>, damit wir bei ausreichendem
-                Platzangebot zusätzliche Einladungen verschicken können.</p>
-
-            <p>Schickt uns eure Rückmeldung bitte per E-Mail an die Adresse, die in eurer Einladung angegeben war.</p>
-
-            <p><strong>Bitte gebt alle an:</strong></p>
-            <div class="rsvp-list">
-                <ul>
-                    <li>Nehmt ihr teil? (Ja/Nein/Vielleicht)</li>
-                    <li>Wie viele Personen werden mit euch teilnehmen?</li>
-                    <li>Wärt ihr an einer digitalen Kopie des Hochzeitskochbuchs interessiert?</li>
-                </ul>
-            </div>
-
-            <p><strong>Falls ihr plant teilzunehmen oder noch unentschlossen seid, gebt bitte auch an:</strong></p>
-            <div class="rsvp-list">
-                <ul>
-                    <li>Welches ist die beste Telefonnummer, um euch zu erreichen?</li>
-                    <li>Habt ihr Mobilitätseinschränkungen oder braucht ihr anderweitig eine Unterkunft ganz in der
-                        Nähe?</li>
-                    <li>Wo werdet ihr wahrscheinlich übernachten?</li>
-                    <li>Werdet ihr mit dem Auto anreisen? Falls ja, wärt ihr bereit, andere Leute zur Burg und von dort
-                        wegzufahren?</li>
-                    <li>Braucht ihr Taxi-Arrangements? Falls ja, wohin?</li>
-                    <li>Wärt ihr an einer Führung durch die Burg interessiert?</li>
-                    <li>Habt ihr Allergien gegen bestimmte Lebensmittel?</li>
-                </ul>
-            </div>
-        </section>
-
         <section id="pre-wedding-de">
             <h2>Standesamtliche Trauung</h2>
-            <p>Etwa zwei Tage vor der Feier auf der Burg werden wir unsere standesamtliche Trauung an einem Berliner
-                Standesamt haben.</p>
+            <p>Unsere standesamtliche Trauung findet am <strong>14. Oktober 2026 um 13:00 Uhr</strong>
+                im <strong>Rathaus Pankow in Berlin</strong> statt.</p>
 
             <p>Wenn ihr zur engsten Familie oder zur Hochzeitsgesellschaft gehört, seid ihr auch zur standesamtlichen
-                Trauung eingeladen. Wir planen allerdings keine großen Feierlichekeiten an diesem Tag.
+                Trauung eingeladen. Wir planen allerdings keine großen Feierlichkeiten an diesem Tag.
             </p>
         </section>
     </div>
